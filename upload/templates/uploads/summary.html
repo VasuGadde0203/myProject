@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="summary.css"> -->
+    <title>Summary Report</title>
+    <style>
+        /* Add any styling to beautify your table */
+                *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main{
+            width: 100vw;
+            height: 100vh;
+            background-color: #21D4FD;
+            padding: 2rem;
+        }
+        .head h2{
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+    <div class="head">
+        <h2 >Summary Report</h2>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Cust State</th>
+                <th>Total Customers</th>
+                <th>Total DPD</th>
+                <th>Average DPD</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in summary %}
+            <tr>
+                <td>{{ row.Cust_State }}</td>
+                <td>{{ row.total_customers }}</td>
+                <td>{{ row.total_dpd }}</td>
+                <td>{{ row.avg_dpd|floatformat:2 }}</td>
+            </tr>
+           
+           {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
